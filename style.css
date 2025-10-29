@@ -1,0 +1,41 @@
+/* Oculta los radio buttons */
+.rating input {
+    display: none;
+}
+
+/* Estilo básico del contenedor */
+.rating {
+    display: inline-block; /* O 'flex' si se prefiere */
+    direction: rtl; /* Muestra las estrellas de derecha a izquierda, pero el orden lógico es de izquierda a derecha */
+}
+
+/* Estilo para las etiquetas (las estrellas) */
+.rating label {
+    color: lightgray; /* Color de la estrella sin seleccionar */
+    font-size: 30px; /* Tamaño de la estrella */
+    padding: 0 5px;
+    cursor: pointer;
+    transition: color 0.2s; /* Transición suave para el color */
+}
+
+/* El carácter de estrella Unicode */
+.rating label::before {
+    content: '★';
+}
+
+/* 1. Efecto Hover: Cuando pasas el ratón, las estrellas se vuelven amarillas (y las anteriores también) */
+.rating label:hover,
+.rating label:hover ~ label {
+    color: gold;
+}
+
+/* 2. Estado Seleccionado: Cuando se selecciona un radio button, sus etiquetas adyacentes (anteriores) y la etiqueta asociada se vuelven amarillas */
+.rating input:checked ~ label {
+    color: gold;
+}
+
+/* Sobreescribe el efecto hover para las estrellas ya seleccionadas */
+.rating input:checked ~ label:hover,
+.rating input:checked ~ label:hover ~ label {
+    color: gold;
+}
