@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Explore</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="http://127.0.0.1:3000/Proyecto_final/Index.html?serverWindowId=00674ce3-dfc9-409c-962f-c48e496ffa31">Freelance Hub</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="http://127.0.0.1:3000/Proyecto_final/perfil.html">Perfil</a>
+        </li>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="explorar.html">Explorar</a>
+            </li>
+      </ul>
+     
+    </div>
+      </div>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+              <img src="https://imgs.search.brave.com/0I-0fDSJRKyb-cA4A71jvUiGFZfnb8FsVHmCCZO6tOE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kZWZp/bmljaW9uLmRlL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE5LzA3/L3BlcmZpbC1kZS11/c3VhcmlvLnBuZw" alt="Foto de perfil" class="rounded-circle img-thumbnail" width="40" height="20">
+          </form>
+          
+    </nav>
+    <!-- Navigation Bar -->
+    <div class="container-fluid mt-4">
+    <div class="row">
+        
+        <div class="col-md-3 mb-4">
+            <div class="container p-4" style="max-width: 400px; background-color: #f8f9fa;">
+                <h3 class="mb-4">Filtros</h3>
+
+                <div class="mb-4">
+                    <label for="categoria-select" class="form-label fw-bold">Categoría</label>
+                    <select class="form-select form-select-lg" id="categoria-select" aria-label="Seleccionar categoría">
+                        <option selected>Diseño de Logotipos</option>
+                        </select>
+                </div>
+  // Preguntar  sobre esto \\
+                <div class="mb-4">
+                    <label for="range4" class="form-label">Price</label>
+<input type="range" class="form-range" min="0" max="1000" value="50" step="50" id="range3">
+<output for="range4" id="rangeValue" aria-hidden="true"></output>
+
+<script>
+  const rangeInput = document.getElementById('range3');
+  const rangeOutput = document.getElementById('rangeValue');
+
+  // Set initial value
+  rangeOutput.textContent = rangeInput.value;
+
+  rangeInput.addEventListener('input', function() {
+    rangeOutput.textContent = this.value;
+  });
+</script>
+                </div>
+// Preguntar  sobre esto \\
+                <div class="d-grid">
+                    <button type="button" class="btn btn-primary btn-lg" style="background-color: #007bff; border-color: #007bff;">
+                        Aplicar filtros
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <h3 class="mb-4">Resultados de la búsqueda</h3>
+
+            <div class="card mb-3 p-3">
+                <div class="d-flex align-items-center">
+                    <div class="me-3 p-3 text-center border rounded" style="width: 120px; height: 120px; flex-shrink: 0;">
+                        <img src="#"  class="img-fluid" style="max-height: 100px;">
+                    </div>
+                    <div class="flex-grow-1">
+                        <p class="text-primary small mb-1">Diseño de logotipos</p>
+                        <h5 class="mb-2">Logotipo moderno y minimalista para tu marca</h5>
+                        <p class="text-muted mb-2 small">Diseñador gráfico con más de 5 años de experiencia. Especializado en logotipos minimalistas y modernos.</p>
+                        <div class="d-flex align-items-center">
+                            <img src="#" alt="Perfil Juan P." class="rounded-circle me-2" style="width: 24px; height: 24px; object-fit: cover;">
+                            <span class="small text-muted">Juan P.</span>
+                        </div>
+                    </div>
+                    <div class="ms-3 align-self-center">
+                        <button class="btn btn-info text-white">Ver perfil</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-center mt-4">
+                <nav aria-label="Navegación de resultados">
+                    <ul class="pagination">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
