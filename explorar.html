@@ -8,110 +8,199 @@
   </head>
   <body>
     <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="http://127.0.0.1:3000/Index.html">Freelance Hub</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="http://127.0.0.1:3000/perfil.html">Perfil</a>
-        </li>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="Index.html">Freelance Hub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="http://127.0.0.1:3000/explorar.html">Explorar</a>
+              <a class="nav-link active" aria-current="page" href="perfil.html">Perfil</a>
             </li>
-      </ul>
-     
-    </div>
-          
-  </div>
-      <form class="d-flex ms-auto" role="search">
-  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-  <a href="http://127.0.0.1:3000/Proyecto_final/register.html" class="btn btn-primary me-2" type="submit">Register</a>
-  <a href="http://127.0.0.1:3000/Proyecto_final/login.html" class="btn btn-outline-primary" type="submit">Login</a>
-</form>
-</nav>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="explorar.html">Explorar</a>
+            </li>
+          </ul>
+        </div>
+
+        <form class="d-flex ms-auto" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+          <a href="register.html" class="btn btn-primary me-2" type="submit">Register</a>
+          <a href="login.html" class="btn btn-outline-primary" type="submit">Login</a>
+        </form>
+      </div>
+    </nav>
     <!-- Navigation Bar -->
+
     <div class="container-fluid mt-4">
-    <div class="row">
+      <div class="row">
         
+        <!-- Filtros -->
         <div class="col-md-3 mb-4">
-            <div class="container p-4" style="max-width: 400px; background-color: #f8f9fa;">
-                <h3 class="mb-4">Filtros</h3>
+          <div class="container p-4" style="max-width: 400px; background-color: #f8f9fa;">
+            <h3 class="mb-4">Filtros</h3>
 
-                <div class="mb-4">
-                    <label for="categoria-select" class="form-label fw-bold">Categoría</label>
-                    <select class="form-select form-select-lg" id="categoria-select" aria-label="Seleccionar categoría">
-                        <option selected>Diseño de Logotipos</option>
-                        </select>
-                </div>
-  // Preguntar  sobre esto \\
-                <div class="mb-4">
-                    <label for="range4" class="form-label">Price</label>
-<input type="range" class="form-range" min="0" max="1000" value="50" step="50" id="range3">
-<output for="range4" id="rangeValue" aria-hidden="true"></output>
-
-<script>
-  const rangeInput = document.getElementById('range3');
-  const rangeOutput = document.getElementById('rangeValue');
-
-  // Set initial value
-  rangeOutput.textContent = rangeInput.value;
-
-  rangeInput.addEventListener('input', function() {
-    rangeOutput.textContent = this.value;
-  });
-</script>
-                </div>
-// Preguntar  sobre esto \\
-                <div class="d-grid">
-                    <button type="button" class="btn btn-primary btn-lg" style="background-color: #007bff; border-color: #007bff;">
-                        Aplicar filtros
-                    </button>
-                </div>
+            <div class="mb-4">
+              <label for="categoria-select" class="form-label fw-bold">Categoría</label>
+              <select class="form-select form-select-lg" id="categoria-select">
+                <option value="todos">Todas</option>
+                <option value="Diseño de logotipos" selected>Diseño de Logotipos</option>
+                <option value="Desarrollo web">Desarrollo Web</option>
+                <option value="Marketing">Marketing</option>
+              </select>
             </div>
+
+            <div class="mb-4">
+              <label class="form-label">Price</label>
+              <input type="range" class="form-range" min="0" max="1000" value="50" step="50" id="range3">
+              <output id="rangeValue"></output>
+
+              <script>
+                const rangeInput = document.getElementById('range3');
+                const rangeOutput = document.getElementById('rangeValue');
+                rangeOutput.textContent = rangeInput.value;
+
+                rangeInput.addEventListener('input', function() {
+                  rangeOutput.textContent = this.value;
+                });
+              </script>
+            </div>
+
+            <div class="d-grid">
+              <button id="btn-filtrar" class="btn btn-primary btn-lg">
+                Aplicar filtros
+              </button>
+            </div>
+          </div>
         </div>
 
+        <!-- Resultados -->
         <div class="col-md-9">
-            <h3 class="mb-4">Resultados de la búsqueda</h3>
+          <h3 class="mb-4">Resultados de la búsqueda</h3>
 
-            <div class="card mb-3 p-3">
+          <!-- CARD 1 -->
+          <div class="card mb-3 p-3 servicio-card" data-categoria="Diseño de logotipos">
+            <div class="d-flex align-items-center">
+              <div class="me-3 p-3 text-center border rounded" style="width: 120px; height: 120px; flex-shrink: 0;">
+                <img src="#" class="img-fluid" style="max-height: 100px;">
+              </div>
+
+              <div class="flex-grow-1">
+                <p class="text-primary small mb-1">Diseño de logotipos</p>
+                <h5 class="mb-2">Logotipo moderno y minimalista para tu marca</h5>
+                <p class="text-muted mb-2 small">Diseñador gráfico con más de 5 años de experiencia. Especializado en logotipos minimalistas y modernos.</p>
                 <div class="d-flex align-items-center">
-                    <div class="me-3 p-3 text-center border rounded" style="width: 120px; height: 120px; flex-shrink: 0;">
-                        <img src="#"  class="img-fluid" style="max-height: 100px;">
-                    </div>
-                    <div class="flex-grow-1">
-                        <p class="text-primary small mb-1">Diseño de logotipos</p>
-                        <h5 class="mb-2">Logotipo moderno y minimalista para tu marca</h5>
-                        <p class="text-muted mb-2 small">Diseñador gráfico con más de 5 años de experiencia. Especializado en logotipos minimalistas y modernos.</p>
-                        <div class="d-flex align-items-center">
-                            <img src="#" alt="Perfil Juan P." class="rounded-circle me-2" style="width: 24px; height: 24px; object-fit: cover;">
-                            <span class="small text-muted">Juan P.</span>
-                        </div>
-                    </div>
-                    <div class="ms-3 align-self-center">
-                        <button class="btn btn-info text-white">Ver perfil</button>
-                    </div>
+                  <img src="#" class="rounded-circle me-2" style="width: 24px; height: 24px; object-fit: cover;">
+                  <span class="small text-muted">Juan P.</span>
                 </div>
+              </div>
+
+              <div class="ms-3 align-self-center">
+                <button class="btn btn-info text-white">Ver perfil</button>
+              </div>
             </div>
-            
-            <div class="d-flex justify-content-center mt-4">
-                <nav aria-label="Navegación de resultados">
-                    <ul class="pagination">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        </ul>
-                </nav>
-            </div>
-        </div>
+          </div>
+
+          <!-- CARD 2 -->
+<div class="card mb-3 p-3 servicio-card" data-categoria="Desarrollo web">
+  <div class="d-flex align-items-center">
+    <div class="me-3 p-3 text-center border rounded" style="width: 120px; height: 120px; flex-shrink: 0;">
+      <img src="#" class="img-fluid" style="max-height: 100px;">
     </div>
+
+    <div class="flex-grow-1">
+      <p class="text-primary small mb-1">Desarrollo web</p>
+      <h5 class="mb-2">Sitio web moderno, rápido y completamente responsive</h5>
+      <p class="text-muted mb-2 small">
+        Desarrollador web con experiencia en HTML, CSS, JavaScript y frameworks modernos.
+        Creo sitios rápidos, seguros y optimizados para cualquier dispositivo.
+      </p>
+
+      <div class="d-flex align-items-center">
+        <img src="#" class="rounded-circle me-2" style="width: 24px; height: 24px; object-fit: cover;">
+        <span class="small text-muted">Lucas R.</span>
+      </div>
+    </div>
+
+    <div class="ms-3 align-self-center">
+      <button class="btn btn-info text-white">Ver perfil</button>
+    </div>
+  </div>
 </div>
 
+
+          <!--CARD 3-->
+<div class="card mb-3 p-3 servicio-card" data-categoria="Marketing">
+  <div class="d-flex align-items-center">
+    <div class="me-3 p-3 text-center border rounded" style="width: 120px; height: 120px; flex-shrink: 0;">
+      <img src="#" class="img-fluid" style="max-height: 100px;">
+    </div>
+
+    <div class="flex-grow-1">
+      <p class="text-primary small mb-1">Marketing</p>
+      <h5 class="mb-2">Estrategias efectivas para hacer crecer tu marca</h5>
+      <p class="text-muted mb-2 small">
+        Especialista en marketing digital. Campañas en redes sociales, branding,
+        optimización de contenido y análisis de mercado para aumentar tu alcance.
+      </p>
+
+      <div class="d-flex align-items-center">
+        <img src="#" class="rounded-circle me-2" style="width: 24px; height: 24px; object-fit: cover;">
+        <span class="small text-muted">María S.</span>
+      </div>
+    </div>
+
+    <div class="ms-3 align-self-center">
+      <button class="btn btn-info text-white">Ver perfil</button>
+    </div>
+  </div>
+</div>
+
+          <!-- PAGINACIÓN -->
+          <div class="d-flex justify-content-center mt-4">
+            <nav aria-label="Navegación de resultados">
+              <ul class="pagination">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SCRIPT FILTRO -->
+    <script>
+      const selectCategoria = document.getElementById('categoria-select');
+      const cards = document.querySelectorAll('.servicio-card');
+      const btnFiltrar = document.getElementById('btn-filtrar');
+
+      btnFiltrar.addEventListener('click', () => {
+        const categoria = selectCategoria.value.toLowerCase();
+
+        cards.forEach(card => {
+          const cardCategoria = card.dataset.categoria.toLowerCase();
+
+          if (categoria === "todos" || cardCategoria === categoria) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
